@@ -14,12 +14,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.rajat.firebaseuserloginusingphoto.databinding.ActivityMainBinding;
@@ -63,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                binding.progressBar.setVisibility(View.VISIBLE);
+                binding.progressText.setVisibility(View.VISIBLE);
                 uploadUserData();
 
 
@@ -90,7 +94,11 @@ public class MainActivity extends AppCompatActivity {
                         binding.userName.setText("");
                         binding.password.setText("");
                         binding.profileImage.setImageResource(R.drawable.ic_launcher_background);
-
+                        binding.progressBar.setProgress(0);
+                        binding.progressText.setText("0.0%");
+                        binding.progressBar.setVisibility(View.GONE);
+                        binding.progressText.setVisibility(View.GONE);
+                        Toast.makeText(getApplicationContext(),"User Registration Succcss",Toast.LENGTH_LONG).show();
 
                     }
 
@@ -99,6 +107,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Log.e("FIREBASE",e.getMessage());
+                binding.progressBar.setProgress(0);
+                binding.progressText.setText("0.0%");
+                binding.progressBar.setVisibility(View.GONE);
+                binding.progressText.setVisibility(View.GONE);
+                Toast.makeText(getApplicationContext(),"User Registration Failed!!!!",Toast.LENGTH_LONG).show();
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                double progress = (100 * snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
+                binding.progressBar.setProgress((int)progress);
+                binding.progressText.setText(progress+"%");
             }
         });
     }
