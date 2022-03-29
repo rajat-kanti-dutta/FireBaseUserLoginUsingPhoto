@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FireBaseUserLoginUsingPhoto</string>
+    <string name="prompt">Select JobRole</string>
+    <string-array name="jobroles">
+        <item>SalesMan</item>
+        <item>Accountant</item>
+        <item>Asst.Clerk</item>
+        <item>Sr.Developer</item>
+        <item>Sr.System Analyst</item>
+        <item>Jr.Developer</item>
+    </string-array>
+</resources>

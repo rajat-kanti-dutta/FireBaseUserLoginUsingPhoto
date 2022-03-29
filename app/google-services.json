@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "357896947471",
+    "firebase_url": "https://fir-userloginusingphoto-default-rtdb.firebaseio.com",
+    "project_id": "fir-userloginusingphoto",
+    "storage_bucket": "fir-userloginusingphoto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357896947471:android:b5d3b1ea49b843fe48e07a",
+        "android_client_info": {
+          "package_name": "com.rajat.firebaseuserloginusingphoto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357896947471-pcfe55jas1codlad9e1245bnlt5bb7qd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa2Rar-dbUAe-s8QR5MzaxAr8lLdIuDg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357896947471-pcfe55jas1codlad9e1245bnlt5bb7qd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
